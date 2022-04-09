@@ -4,9 +4,9 @@
 <h1>Post.php</h1>
 
 <?php
-$title = $_GET['title'];
-$post = fetch_post($title);
-var_dump($post);
+$id = $_GET['id'];
+$post = fetch_post($id);
+
  ?>
 
  <div class="panel panel-default">
@@ -14,7 +14,7 @@ var_dump($post);
     <h3 class="panel-title"><?php echo $post["title"]; ?></h3>
   </div>
   <div class="panel-body">
-   <?php echo $post["content"]; ?>
+   <?php echo nl2br( $post["content"]); ?>
   </div>
  </div>
 
