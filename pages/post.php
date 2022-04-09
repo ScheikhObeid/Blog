@@ -4,7 +4,7 @@
 <h1>Post.php</h1>
 
 <?php
-$postsRepository = new App\Post\PostsRepository();
+$postsRepository = new App\Post\PostsRepository($pdo);
 $id = $_GET['id'];
 $post = $postsRepository->fetchPost($id);
 
@@ -12,10 +12,10 @@ $post = $postsRepository->fetchPost($id);
 
  <div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title"><?php echo $post["title"]; ?></h3>
+    <h3 class="panel-title"><?php echo $post->title; ?></h3>
   </div>
   <div class="panel-body">
-   <?php echo nl2br( $post["content"]); ?>
+   <?php echo nl2br( $post->content); ?>
   </div>
  </div>
 
