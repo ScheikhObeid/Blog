@@ -5,7 +5,8 @@
 <p class="lead">Das hier ist die Startseite des Blogs.</p>
 
 <?php
-  $res = fetch_posts();
+$postsRepository = new App\Post\PostsRepository();
+  $res = $postsRepository->fetchPosts();
 ?>
 
 <ul>
