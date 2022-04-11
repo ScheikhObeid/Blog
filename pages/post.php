@@ -4,7 +4,7 @@
 <h1>Post.php</h1>
 
 <?php
-$postsRepository = $container->getPostsRepository();
+$postsRepository = $container->make("postsRepository");
 $id = $_GET['id'];
 $post = $postsRepository->fetchPost($id);
 
