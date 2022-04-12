@@ -13,11 +13,10 @@ class PostsController
 
     public function index()
     {
-        $res = $this->postsRepository->fetchPosts(); 
-        echo "<h1>PostsController - index() wurde ausgefuehrt</h1>";
+        $posts = $this->postsRepository->fetchPosts(); 
+     include __DIR__ . "/../../views/post/index.php";
+
     }
-
-
 
 }
 
