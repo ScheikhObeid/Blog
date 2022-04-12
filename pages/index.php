@@ -1,5 +1,9 @@
-<?php include("../init.php"); ?>
-<?php include("elements/header.php"); ?>
+<?php include("../init.php");
+$postsController = $container->make("postsController");
+$postsController->index();
+ 
+?>
+ <?php /* include("elements/header.php"); ?>
 
 <h1>Startseite des Blogs</h1>
 <p class="lead">Das hier ist die Startseite des Blogs.</p>
@@ -19,4 +23,4 @@ $postsRepository = $container->make("postsRepository");
   <?php endforeach; ?>
 </ul>
 
-<?php include("elements/footer.php"); ?>
+<?php include("elements/footer.php"); */ ?>
