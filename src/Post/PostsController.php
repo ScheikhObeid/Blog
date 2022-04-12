@@ -11,22 +11,36 @@ class PostsController
        $this->postsRepository =  $postsRepository;
     }
 
-  
+    public function render($view, $params)
+    {
+        // foreach ($params as $key => $value){
+           
+        //     ${$key} = $value;
+        
+        // }
+        extract($params);
+
+        include __DIR__ . "/../../views/{$view}.php";
+
+    }
 
     public function index()
     {
+        
         $posts = $this->postsRepository->fetchPosts(); 
-        include __DIR__ . "/../../views/post/index.php";
+        $this->render('post/index', [
+            'posts' => $posts
+        ]);
+      
+        
 
     }
 
     public function show(){
+
         $id = $_GET['id'];
         $post = $this->postsRepository->fetchPost($id);
-        include __DIR__ . "/../../views/post/show.php";
-        // $postsRepository = $container->make("postsRepository");
-        // $id = $_GET['id'];
-        // $post = $postsRepository->fetchPost($id);
+        $this->render('post/show', ['post' => $post]);
         
 
     }
