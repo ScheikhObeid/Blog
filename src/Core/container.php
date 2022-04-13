@@ -5,7 +5,7 @@ namespace App\Core;
 use PDO;
 use App\Post\PostsRepository;
 use App\Post\PostsController;
-
+use PDOException;
 
 class Container
 {
@@ -27,11 +27,16 @@ class Container
         );
       },
       'pdo' => function() {
+        try{
         $pdo = new PDO(
           'mysql:host=localhost;dbname=blog;charset=utf8',
           'root',
           
         );
+      }catch(PDOException $e){
+      echo "Verbindung zur Datenbank könnte nicht erstellt werden";
+      die();
+      }
         $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
         return $pdo;
       }
