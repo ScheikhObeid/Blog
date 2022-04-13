@@ -1,56 +1,34 @@
 <?php
 namespace App\Post;
 
+use App\Core\Controller;
 
-class PostsController
+class PostsController extends Controller
 {
-    
-    
-    public function __construct(PostsRepository $postsRepository)
-    {
-       $this->postsRepository =  $postsRepository;
-    }
 
-    public function render($view, $params)
-    {
-        // foreach ($params as $key => $value){
-           
-        //     ${$key} = $value;
-        
-        // }
-        extract($params);
+  public function __construct(PostsRepository $postsRepository)
+  {
+      $this->postsRepository = $postsRepository;
+  }
 
-        include __DIR__ . "/../../views/{$view}.php";
+  public function index()
+  {
+      $posts = $this->postsRepository->fetchPosts();
 
-    }
+      $this->render("post/index", [
+        'posts' => $posts
+      ]);
+  }
 
-    public function index()
-    {
-        
-        $posts = $this->postsRepository->fetchPosts(); 
-        $this->render('post/index', [
-            'posts' => $posts
-        ]);
-      
-        
+  public function show()
+  {
+      $id = $_GET['id'];
+      $post = $this->postsRepository->fetchPost($id);
 
-    }
-
-    public function show(){
-
-        $id = $_GET['id'];
-        $post = $this->postsRepository->fetchPost($id);
-        $this->render('post/show', ['post' => $post]);
-        
-
-    }
-
+      $this->render("post/show", [
+        'post' => $post
+      ]);
+  }
 }
 
-
-
-
-
-
-
-?>
+ ?>
