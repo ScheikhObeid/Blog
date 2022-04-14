@@ -11,4 +11,15 @@
   </div>
  </div>
 
+ <div>
+ <ul>
+  <?php foreach ($comments AS $comment): ?>
+    <li style="border:solid;padding:0.5rem; height:5rem">
+        <?php echo $comment->content; ?>
+        <?php // var_dump($comment->content)?>
+
+    </li><br>
+  <?php endforeach; ?>
+</ul>
+ </div>
  <?php include __DIR__ . "../layout/footer.php" ?>

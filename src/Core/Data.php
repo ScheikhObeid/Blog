@@ -7,7 +7,7 @@ use PDO;
 abstract class Data
 {
 
-  private $pdo;
+  protected $pdo;
 
   public function __construct(PDO $pdo)
   {
@@ -38,5 +38,10 @@ abstract class Data
 
     return $post;
   }
+
+
+
+
+
 }
  ?>

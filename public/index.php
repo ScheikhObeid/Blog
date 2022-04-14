@@ -1,7 +1,11 @@
 <?php
 require __DIR__ . "/../init.php";
-
+// if(isset($_SERVER['PATH_INFO'])){
 $pathInfo = $_SERVER['PATH_INFO'];
+// }else{
+
+//   $pathInfo = '/index';
+// }
 
 $routes = [
   '/index' => [
