@@ -472,3 +472,29 @@ composer.lock
 *.css.map
 *.sass.map
 *.scss.map
+
+
+##### Tailwind
+/node_modules
+/coverage
+/cli
+/lib
+/peers
+/example
+.vscode
+.DS_Store
+tailwind.config.js
+index.html
+yarn.lock
+yarn-error.log
+types/generated/*.d.ts
+
+# Perf related files
+isolate*.log
+
+# Generated files
+/src/corePluginList.js
+
+    © 2022 GitHub, Inc.
+
+    T
