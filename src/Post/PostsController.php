@@ -26,6 +26,11 @@ class PostsController extends Controller
   public function show()
   {
       $id = $_GET['id'];
+      if(isset($_POST['content'])){
+        $content = $_POST['content'];
+        $this->commentsRepository->insertComment($id, $content);
+      }
+     
       $post = $this->postsRepository->find($id);
       $comments = $this->commentsRepository->comments($id);
 

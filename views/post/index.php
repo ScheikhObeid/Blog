@@ -1,6 +1,6 @@
 <?php include __DIR__ . "../layout/header.php" ?>
 
-<div class="w-[80%] m-8 flex flex-wrap">
+<div class="m-8 flex flex-wrap">
      
         <?php foreach ($posts AS $post): ?>
           <div class="max-w-[30%] mx-2 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
