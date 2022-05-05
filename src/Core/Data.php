@@ -34,9 +34,9 @@ abstract class Data
     $stmt = $this->pdo->prepare("SELECT * FROM `$table` WHERE id = :id");
     $stmt->execute(['id' => $id]);
     $stmt->setFetchMode(PDO::FETCH_CLASS, $model);
-    $post = $stmt->fetch(PDO::FETCH_CLASS);
+    $user = $stmt->fetch(PDO::FETCH_CLASS);
 
-    return $post;
+    return $user;
   }
 
 

@@ -12,10 +12,15 @@ $routes = [
     'controller' => 'postsController',
     'method' => 'index'
   ],
+
   '/post' => [
     'controller' => 'postsController',
     'method' => 'show'
-  ]
+  ],
+  '/login' => [
+    'controller' => 'loginController',
+    'method' => 'login'
+  ],
 ];
 
 if (isset($routes[$pathInfo])) {
