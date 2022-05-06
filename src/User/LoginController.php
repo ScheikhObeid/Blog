@@ -10,11 +10,32 @@ class LoginController extends Controller{
         $this->usersRepository = $usersRepository;
     }
 
-    public function login(){
+    public function login()
+  {
+ 
+    $error = false;
+    if (!empty($_POST['username']) AND !empty($_POST['password'])) {
+      $username = $_POST['username'];
+      $password = $_POST['password'];
 
-        $this->render("user/login", []);
+      $user = $this->usersRepository->findByUsername($username);
+
+      if (!empty($user)) {
+        if (password_verify($password, $user->password)) {
+          echo "Login erfolgreich!";
+          die();
+        } else {
+          $error = true;
+        }
+
+      } else {
+        $error = true;
+      }
     }
 
+    $this->render("user/login", [
+      'error' => $error
+    ]);
+  }
 }
-
-?>
+ ?>
