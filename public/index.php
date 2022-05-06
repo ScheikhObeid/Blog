@@ -27,6 +27,12 @@ $routes = [
     'controller' => 'loginController',
     'method' => 'dashboard'
   ],
+
+  '/logout' => [
+    'controller' => 'loginController',
+    'method' => 'logout'
+  ],
+
 ];
 
 if (isset($routes[$pathInfo])) {

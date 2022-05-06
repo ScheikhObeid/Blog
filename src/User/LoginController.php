@@ -14,7 +14,14 @@ class LoginController extends Controller{
         if(isset($_SESSION['login'])){
             echo "Nutzer ist eingelogt!";
         }else{
-            echo "Nutzer ist nicht eingelogt";
+            header("Location: login");
+        }
+    }
+
+    public function logout(){
+        if(isset($_SESSION['login'])){
+           unset($_SESSION['login']);
+           header("Location: login");
         }
     }
 
@@ -32,9 +39,10 @@ class LoginController extends Controller{
         if (password_verify($password, $user->password)) {
             $_SESSION['login'] = $user->username;
             session_regenerate_id(true);
+            header("Location: dashboard");
           echo "Login erfolgreich! <br>";
           echo $_SESSION['login'];
-          die();
+          return;
         } else {
           $error = true;
         }
