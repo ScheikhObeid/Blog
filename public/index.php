@@ -1,4 +1,5 @@
 <?php
+session_start();
 require __DIR__ . "/../init.php";
 // if(isset($_SERVER['PATH_INFO'])){
 $pathInfo = $_SERVER['PATH_INFO'];
@@ -20,6 +21,11 @@ $routes = [
   '/login' => [
     'controller' => 'loginController',
     'method' => 'login'
+  ],
+
+  '/dashboard' => [
+    'controller' => 'loginController',
+    'method' => 'dashboard'
   ],
 ];
 
